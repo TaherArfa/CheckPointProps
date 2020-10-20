@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import image from './profil.png'
+import ProfilComponent from './profile/profilComponent'
+
+const styleimg = {
+  width: "300px",
+  height: "300px",
+  margin: "47PX",
+  borderRadius: "50%",
+};
+
 
 function App() {
+  const handlData= (name)=>{
+    alert(name)
+  }
+  // const obj = {
+    ProfilComponent.defaultProps={
+    LastName: "Arfaoui  ",
+    FirstName:" Taher",
+    bio: "Software Engineer, 27 years old ",
+    profession:"Freelance Developper",
+    img: image
+  };
+  console.log(ProfilComponent.defaultProps)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <ProfilComponent x={ProfilComponent.defaultProps} y="E" handleClick={handlData}>
+
+        <h2>Profil Pic</h2>
+        <img width="200px" height="240px"
+        style={styleimg}
+          // style={styleimg}
+          src={ProfilComponent.defaultProps.img}
+          alt="name">
+          </img>
+      </ProfilComponent>
       </header>
     </div>
   );
 }
 
 export default App;
+
+
